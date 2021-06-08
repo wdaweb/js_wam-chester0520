@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-image: url(./images/背景.jpg);
+            background-size: cover;
+            position: relative;
+        }
+
+        table {
+            margin-top: 45px;
+            margin-left: 350px;
+        }
+
+        td {
+            text-align: end;
+            padding: 30px;
+        }
+
+        #menu {
+            background: rgba(255, 255, 255, 0.55);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4.0px);
+            -webkit-backdrop-filter: blur(4.0px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 400px;
+            height: 500px;
+            position: absolute;
+            left: 66%;
+            bottom: 5%;
+            text-align: center;
+            font-family: 'Noto Sans TC', sans-serif;
+            line-height: 30px;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        #logo {
+            width: 500px;
+            position: absolute;
+            bottom: 80%;
+            left: 65%;
+        }
+
+        .holes {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        .baby {
+            background-image: url(./images/菇菇寶貝.gif);
+            background-repeat: no-repeat;
+        }
+
+        .babycry {
+            background-image: url(./images/菇菇寶貝-哭.png);
+            background-repeat: no-repeat;
+        }
+
+        .green {
+            background-image: url(./images/綠菇菇.gif);
+            background-repeat: no-repeat;
+        }
+
+        .greencry {
+            background-image: url(./images/綠菇菇-哭.png);
+            background-repeat: no-repeat;
+        }
+
+        .thorn {
+            background-image: url(./images/刺菇菇.gif);
+            background-repeat: no-repeat;
+        }
+
+        .thorncry {
+            background-image: url(./images/刺菇菇-哭.png);
+            background-repeat: no-repeat;
+
+        }
+
+        .blue {
+            background-image: url(./images/藍菇菇.gif);
+            background-repeat: no-repeat;
+        }
+
+        .bluecry {
+            background-repeat: no-repeat;
+            background-image: url(./images/藍菇菇-哭.png);
+        }
+
+        .zomnbie {
+            background-image: url(./images/殭屍菇菇.gif);
+            background-repeat: no-repeat;
+        }
+
+        .zomnbiecry {
+            background-repeat: no-repeat;
+            background-image: url(./images/殭屍菇菇-哭.png);
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td class="holes" id="hole1"></td>
+            <td class="holes" id="hole2"></td>
+            <td class="holes" id="hole3"></td>
+            <td class="holes" id="hole4"></td>
+            <td class="holes" id="hole5"></td>
+        </tr>
+        <tr>
+            <td class="holes" id="hole6"></td>
+            <td class="holes" id="hole7"></td>
+            <td class="holes" id="hole8"></td>
+            <td class="holes" id="hole9"></td>
+            <td class="holes" id="hole10"></td>
+        </tr>
+        <tr>
+            <td class="holes" id="hole11"></td>
+            <td class="holes" id="hole12"></td>
+            <td class="holes" id="hole13"></td>
+            <td class="holes" id="hole14"></td>
+            <td class="holes" id="hole15"></td>
+        </tr>
+        <tr>
+            <td class="holes" id="hole16"></td>
+            <td class="holes" id="hole17"></td>
+            <td class="holes" id="hole18"></td>
+            <td class="holes" id="hole19"></td>
+            <td class="holes" id="hole20"></td>
+        </tr>
+        <tr>
+            <td class="holes" id="hole21"></td>
+            <td class="holes" id="hole22"></td>
+            <td class="holes" id="hole23"></td>
+            <td class="holes" id="hole24"></td>
+            <td class="holes" id="hole25"></td>
+        </tr>
+    </table>
+    <img src="./images/LOGO.png" id="logo">
+    <div id="menu">
+        <h1>遊戲規則:
+            限時60秒 <br>
+            菇菇寶貝得1分<br>
+            綠菇菇得2分<br>
+            刺菇菇得3分<br>
+            藍菇菇得5分<br>
+            殭屍菇菇扣3分<br>
+        </h1>
+        <input type="button" value="遊戲開始" id="btn-start" style="width:200px;height:50px;font-size:20px">
+        <br>
+        <input type="button" value="重新開始" id="btn-reset" style="width:200px;height:50px;font-size:20px">
+        <br>
+        <p>目前分數: <span id="text-score">0</span></p>
+        <p id="time">還剩 <span id="text-countdown">10</span> 秒</p>
+        <span>最高紀錄:</span>
+        <br>
+        玩家: <span id="highscore-player">-</span>
+        <br>
+        分數: <span id="highscore-score">-</span>
+        <br>
+        <br>
+        課程練習用
+    </div>
+    <script>
+        const btnStart = document.getElementById('btn-start')
+        const btnStop = document.getElementById('btn-stop')
+        const btnReset = document.getElementById('btn-reset')
+        const holes = document.getElementsByClassName('holes')
+        const textScore = document.getElementById('text-score')
+        const textHighscorePlayer = document.getElementById('highscore-player')
+        const textHighscore = document.getElementById('highscore-score')
+        const textCountdown = document.getElementById('text-countdown')
+        const time = document.getElementById('time')
+
+        time.style.display = "none";
+        let score = 0
+        let countdown = 60
+        let timer1 = 0
+        let timer2 = 0
+
+
+        let highscore = { name: '', score: 0 }
+        const highStorage = JSON.parse(localStorage.getItem('maplestory'))
+        if (highStorage !== null) {
+            highscore = highStorage
+            textHighscorePlayer.innerText = highscore.name
+            textHighscore.innerText = highscore.score
+        }
+
+        // 重新開始按鈕
+        btnReset.onclick = () => {
+            for (const hole of holes) {
+                hole.classList.remove('baby')
+                hole.classList.remove('green')
+                hole.classList.remove('thorn')
+                hole.classList.remove('blue')
+                hole.classList.remove('zomnbie')
+                hole.classList.remove('babycry')
+            }
+            clearInterval(timer1);
+            clearInterval(timer2);
+            clearInterval(timer3);
+            if (countdown <= 45 && countdown > 30) {
+                clearInterval(timer4);
+            } else if (countdown <= 30 && countdown > 25) {
+                clearInterval(timer4);
+                clearInterval(timer5);
+            } else if (countdown <= 25) {
+                clearInterval(timer4)
+                clearInterval(timer5);
+                clearInterval(timer6);
+            }
+            btnStart.disabled = false
+
+            score = 0
+            textScore.innerText = score
+
+            time.style.display = "none";
+
+            countdown = 60
+            textCountdown.innerText = countdown
+            alert('再來一次!')
+        }
+
+        // 遊戲開始按鈕
+        btnStart.onclick = () => {
+            btnStart.disabled = true
+            score = 0
+            textScore.innerText = score
+
+            time.style.display = "block";
+
+            countdown = 60
+            textCountdown.innerText = countdown
+
+            gugubaby()
+            timer1 = setInterval(clock, 1000)
+            timer2 = setInterval(gugubaby, 1000)
+            timer3 = setInterval(zomnbiebaby, 1500)
+        }
+
+        // 遊戲時間、遊戲結束
+        const clock = () => {
+            countdown--
+            textCountdown.innerText = countdown
+            if (countdown == 45) {
+                timer4 = setInterval(greenbaby, 2000)
+            } else if (countdown == 30) {
+                timer5 = setInterval(thornbaby, 3000)
+            } else if (countdown == 25) {
+                timer6 = setInterval(bluebaby, 5000)
+            } else if (countdown <= 0) {
+                clearInterval(timer1);
+                clearInterval(timer2);
+                clearInterval(timer3);
+                clearInterval(timer4);
+                clearInterval(timer5);
+                clearInterval(timer6);
+                alert(`恭喜你，得到 ${score} 分`)
+                btnStart.disabled = false
+                time.style.display = "none";
+
+                if (score > highscore.score) {
+                    highscore.score = score
+                    highscore.name = prompt(`你是目前最高分! 請輸入名字`)
+                    if (highscore.name === null || highscore.name.length === 0) {
+                        highscore.name = '路人'
+                    }
+                    textHighscorePlayer.innerText = highscore.name
+                    textHighscore.innerText = highscore.score
+                    localStorage.setItem('maplestory', JSON.stringify(highscore))
+                }
+            }
+        }
+
+        // 菇菇寶貝
+        const gugubaby = () => {
+            for (let i = 0; i < 1; i++) {
+                const random = Math.floor(Math.random() * 25)
+                if (holes[random].className != ('baby' && 'green' && 'thorn' && 'blue' && 'zomnbie')) {
+                    holes[random].classList.add('baby')
+                }
+                setTimeout(() => {
+                    holes[random].classList.remove('baby')
+                }, 1500);
+            }
+        }
+
+        // 綠菇菇
+        const greenbaby = () => {
+            for (let i = 0; i < 1; i++) {
+                const random = Math.floor(Math.random() * 25)
+                if (holes[random].className != ('baby' && 'green' && 'thorn' && 'blue' && 'zomnbie')) {
+                    holes[random].classList.add('green')
+                }
+                setTimeout(() => {
+                    holes[random].classList.remove('green')
+                }, 1500);
+            }
+        }
+
+        // 刺菇菇
+        const thornbaby = () => {
+            for (let i = 0; i < 1; i++) {
+                const random = Math.floor(Math.random() * 25)
+                if (holes[random].className != ('baby' && 'green' && 'thorn' && 'blue' && 'zomnbie')) {
+                    holes[random].classList.add('thorn')
+                }
+                setTimeout(() => {
+                    holes[random].classList.remove('thorn')
+                }, 1500);
+            }
+        }
+
+        // 藍菇菇
+        const bluebaby = () => {
+            for (let i = 0; i < 1; i++) {
+                const random = Math.floor(Math.random() * 25)
+                if (holes[random].className != ('baby' && 'green' && 'thorn' && 'blue' && 'zomnbie')) {
+                    holes[random].classList.add('blue')
+                }
+                setTimeout(() => {
+                    holes[random].classList.remove('blue')
+                }, 1500);
+            }
+        }
+
+        // 殭屍菇菇
+        const zomnbiebaby = () => {
+            for (let i = 0; i < 1; i++) {
+                const random = Math.floor(Math.random() * 25)
+                if (holes[random].className != ('baby' && 'green' && 'thorn' && 'blue' && 'zomnbie')) {
+                    holes[random].classList.add('zomnbie')
+                }
+                setTimeout(() => {
+                    holes[random].classList.remove('zomnbie')
+                }, 1500);
+
+            }
+        }
+
+        // 遊戲規則
+        for (const hole of holes) {
+            hole.onclick = () => {
+                if (hole.classList.contains('baby')) {
+                    hole.classList.replace('baby', 'babycry')
+                    score++
+                    textScore.innerText = score
+                    setTimeout(() => {
+                        hole.classList.remove('babycry')
+                    }, 1000);
+                } else if (hole.classList.contains('green')) {
+                    hole.classList.replace('green', 'greencry')
+                    score += 2
+                    textScore.innerText = score
+                    setTimeout(() => {
+                        hole.classList.remove('greencry')
+                    }, 1000);
+                } else if (hole.classList.contains('thorn')) {
+                    hole.classList.replace('thorn', 'thorncry')
+                    score += 3
+                    textScore.innerText = score
+                    setTimeout(() => {
+                        hole.classList.remove('thorncry')
+                    }, 1000);
+                } else if (hole.classList.contains('blue')) {
+                    hole.classList.replace('blue', 'bluecry')
+                    score += 5
+                    textScore.innerText = score
+                    setTimeout(() => {
+                        hole.classList.remove('bluecry')
+                    }, 1000);
+                } else if (hole.classList.contains('zomnbie')) {
+                    hole.classList.replace('zomnbie', 'zomnbiecry')
+                    score -= 3
+                    textScore.innerText = score
+                    setTimeout(() => {
+                        hole.classList.remove('zomnbiecry')
+                    }, 1000);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
